@@ -1,0 +1,12 @@
+.logo {
+  display: block;
+  object-fit: contain;
+  max-height: 36px;
+  width: auto;
+}
+
+.logo--text {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--primary);
+}

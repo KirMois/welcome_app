@@ -1,0 +1,170 @@
+/**
+ * Novacode VLC — Light fintech SaaS theme.
+ * Reference: Prakthis screenshot — lavender bg, white cards, deep purple CTA.
+ * Telegram themeParams override via useTelegram hook.
+ */
+
+:root {
+  /* ── Telegram Theme (overridden by themeParams in JS) ─── */
+  --tg-bg-color: #F3F0FF;
+  --tg-text-color: #111827;
+  --tg-header-bg-color: rgba(255, 255, 255, 0.92);
+  --tg-section-bg-color: #FFFFFF;
+  --tg-subtle-color: #6B7280;
+  --tg-link-color: #4F46E5;
+
+  /* ── Brand Purple ───────────────────────────────────────── */
+  --primary: #4F46E5;
+  --primary-hover: #4338CA;
+  --primary-light: #EEF2FF;
+  --primary-glow: 0 8px 24px rgba(79, 70, 229, 0.28);
+  --primary-soft: rgba(79, 70, 229, 0.08);
+  --primary-border: rgba(79, 70, 229, 0.25);
+
+  /* ── Background gradient (like screenshot) ──────────────── */
+  --bg-gradient: linear-gradient(160deg, #EDE9FE 0%, #F5F3FF 45%, #FDE8F8 100%);
+
+  /* ── Surface ────────────────────────────────────────────── */
+  --card-bg: #FFFFFF;
+  --card-shadow: 0 4px 24px rgba(99, 68, 229, 0.10);
+  --card-shadow-hover: 0 8px 32px rgba(99, 68, 229, 0.16);
+  --border-subtle: rgba(99, 68, 229, 0.08);
+
+  /* ── Layout ─────────────────────────────────────────────── */
+  --border-radius: 20px;
+  --radius-sm: 12px;
+  --radius-pill: 100px;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.09);
+
+  /* ── Status colors ──────────────────────────────────────── */
+  --success: #10B981;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+
+  /* ── Icon tint backgrounds (quick action cards) ─────────── */
+  --tint-purple: rgba(79, 70, 229, 0.10);
+  --tint-pink: rgba(236, 72, 153, 0.10);
+  --tint-green: rgba(16, 185, 129, 0.10);
+  --tint-orange: rgba(245, 158, 11, 0.10);
+
+  /* ── App aliases ────────────────────────────────────────── */
+  --app-bg: var(--tg-bg-color);
+  --app-text: var(--tg-text-color);
+  --app-text-muted: var(--tg-subtle-color);
+  --app-surface: var(--card-bg);
+  --app-link: var(--tg-link-color);
+}
+
+/* ── Reset ────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  background: var(--tg-bg-color);
+}
+
+body {
+  background: var(--bg-gradient);
+  min-height: 100vh;
+  color: var(--tg-text-color);
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'SF Pro Display',
+    'Segoe UI', sans-serif;
+  line-height: 1.6;
+  overscroll-behavior: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Typography ───────────────────────────────────────────── */
+h1, h2, h3 {
+  margin: 0 0 0.4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--tg-text-color);
+}
+
+h1 { font-size: clamp(1.5rem, 5vw, 1.875rem); }
+h2 { font-size: clamp(1.25rem, 4vw, 1.5rem); }
+h3 { font-size: 1.0625rem; }
+
+p { margin: 0 0 0.5rem; }
+
+/* ── Screen wrapper ───────────────────────────────────────── */
+.screen {
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.screen-headline {
+  font-size: clamp(1.25rem, 4vw, 1.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.screen-subheadline {
+  color: var(--tg-subtle-color);
+  font-size: 0.9375rem;
+  margin-bottom: 1rem;
+  line-height: 1.55;
+}
+
+.screen-helper {
+  color: var(--tg-subtle-color);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* ── Section label ────────────────────────────────────────── */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.section-header__title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--tg-text-color);
+}
+
+.section-header__link {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+/* ── Touch targets ────────────────────────────────────────── */
+button, a, [role="button"] {
+  min-height: 44px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}

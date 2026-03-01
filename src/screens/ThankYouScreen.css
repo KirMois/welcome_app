@@ -1,0 +1,38 @@
+.thank-you-screen {
+  padding-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thank-you-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 40px 28px;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  width: 100%;
+}
+
+.thank-you-card__icon {
+  width: 64px;
+  height: 64px;
+  color: var(--success);
+  margin: 0 auto 20px;
+  display: block;
+}
+
+.thank-you-card__headline {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin-bottom: 10px;
+  color: var(--tg-text-color);
+}
+
+.thank-you-card__body {
+  color: var(--tg-subtle-color);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}

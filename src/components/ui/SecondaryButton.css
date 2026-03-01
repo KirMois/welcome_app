@@ -1,0 +1,22 @@
+.btn--secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 52px;
+  padding: 0 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary);
+  background: var(--primary-light);
+  border: none;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background 0.2s ease;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+
+.btn--secondary:hover { background: rgba(79, 70, 229, 0.14); }
+.btn--secondary:active { transform: scale(0.98); }
+a.btn--secondary { text-decoration: none; }

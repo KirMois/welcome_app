@@ -1,0 +1,30 @@
+.quiz-screen {
+  padding-top: 8px;
+}
+
+.quiz-screen__step4 {
+  margin-top: 0.5rem;
+}
+
+.quiz-screen__progress {
+  font-size: 0.8125rem;
+  color: var(--tg-subtle-color);
+  margin-bottom: 0.5rem;
+}
+
+.quiz-screen__step4-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--tg-text-color);
+}
+
+.quiz-screen__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.quiz-screen__form .btn--primary {
+  margin-top: 0.5rem;
+}

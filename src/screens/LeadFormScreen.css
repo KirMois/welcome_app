@@ -1,0 +1,13 @@
+.lead-form-screen {
+  padding-top: 8px;
+}
+
+.lead-form-screen__form {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.lead-form-screen__back {
+  margin-top: 12px;
+}

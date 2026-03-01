@@ -1,0 +1,22 @@
+.services-screen {
+  padding-top: 8px;
+}
+
+.services-screen__category {
+  margin-bottom: 24px;
+}
+
+.services-screen__category-title {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.services-screen__category-small {
+  font-size: 0.8125rem;
+  color: var(--tg-subtle-color);
+  margin-bottom: 12px;
+}
