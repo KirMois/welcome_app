@@ -5,14 +5,10 @@
   right: 0;
   z-index: 1000;
   display: flex;
-  align-items: stretch;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-top: 1px solid var(--border-subtle);
-  padding: 8px 4px;
-  padding-bottom: calc(8px + env(safe-area-inset-bottom, 0));
-  box-shadow: 0 -4px 24px rgba(99, 68, 229, 0.07);
+  align-items: center;
+  justify-content: center;
+  padding-bottom: calc(16px + env(safe-area-inset-bottom, 0));
+  pointer-events: none; /* only inner pill is interactive */
 }
 
 .nav-bottom__tab {
@@ -27,7 +23,7 @@
   color: var(--tg-subtle-color);
   text-decoration: none;
   border-radius: var(--radius-sm);
-  transition: color 0.2s ease, background 0.2s ease;
+  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
   border: none;
   background: none;
   cursor: pointer;
@@ -62,4 +58,27 @@
 
 .nav-bottom__tab--active .nav-bottom__label {
   font-weight: 600;
+}
+
+/* Floating pill container */
+.nav-bottom::before {
+  content: '';
+  position: absolute;
+  inset: auto 16px 10px 16px;
+  height: 60px;
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.88),
+    rgba(30, 64, 175, 0.72)
+  );
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(26px);
+  -webkit-backdrop-filter: blur(26px);
+  pointer-events: none;
+}
+
+.nav-bottom > * {
+  position: relative;
+  pointer-events: auto;
 }

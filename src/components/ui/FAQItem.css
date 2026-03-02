@@ -1,9 +1,12 @@
 .faq-item {
-  background: var(--card-bg);
+  background: rgba(255, 255, 255, 0.16);
   border-radius: var(--border-radius);
   margin-bottom: 8px;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--card-shadow);
   overflow: hidden;
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid var(--card-border);
 }
 
 .faq-item__question {

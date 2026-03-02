@@ -3,14 +3,17 @@
 }
 
 .contact-about {
-  background: var(--card-bg);
+  background: rgba(255, 255, 255, 0.14);
   border-radius: var(--border-radius);
   padding: 18px 20px;
   margin-bottom: 16px;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--card-shadow);
   font-size: 0.9375rem;
   color: var(--tg-subtle-color);
   line-height: 1.65;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--card-border);
 }
 
 .contact-links {
@@ -25,13 +28,16 @@
   align-items: center;
   gap: 14px;
   padding: 16px 18px;
-  background: var(--card-bg);
+  background: rgba(255, 255, 255, 0.16);
   border-radius: var(--border-radius);
   text-decoration: none;
   color: var(--tg-text-color);
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  box-shadow: var(--card-shadow);
+  transition: box-shadow 0.22s ease, transform 0.22s ease, background 0.18s ease;
   min-height: 64px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--card-border);
 }
 
 .contact-link:hover {

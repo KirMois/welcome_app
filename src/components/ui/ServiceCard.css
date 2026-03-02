@@ -1,14 +1,17 @@
 .service-card {
-  background: var(--card-bg);
+  background: rgba(255, 255, 255, 0.16);
   border-radius: var(--border-radius);
   padding: 20px;
   margin-bottom: 10px;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--card-shadow);
   cursor: pointer;
   transition: box-shadow 0.25s ease, transform 0.2s ease;
   max-width: 440px;
   margin-left: auto;
   margin-right: auto;
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid var(--card-border);
 }
 
 .service-card:hover {

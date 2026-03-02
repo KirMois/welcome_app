@@ -6,12 +6,15 @@
 }
 
 .thank-you-card {
-  background: var(--card-bg);
+  background: rgba(255, 255, 255, 0.18);
   border-radius: var(--border-radius);
   padding: 40px 28px;
   text-align: center;
-  box-shadow: var(--card-shadow);
+  box-shadow: var(--card-shadow-soft);
   width: 100%;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--card-border);
 }
 
 .thank-you-card__icon {

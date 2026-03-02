@@ -1,57 +1,57 @@
 /**
- * Novacode VLC — Light fintech SaaS theme.
- * Reference: Prakthis screenshot — lavender bg, white cards, deep purple CTA.
+ * Novacode VLC — Soft gradient fintech theme.
+ * Reference: Prakthis-style wallet UI — layered lavender gradient, glass cards.
  * Telegram themeParams override via useTelegram hook.
  */
 
 :root {
   /* ── Telegram Theme (overridden by themeParams in JS) ─── */
-  --tg-bg-color: #F3F0FF;
-  --tg-text-color: #111827;
-  --tg-header-bg-color: rgba(255, 255, 255, 0.92);
-  --tg-section-bg-color: #FFFFFF;
-  --tg-subtle-color: #6B7280;
-  --tg-link-color: #4F46E5;
+  --tg-bg-color: #4F46E5;
+  --tg-text-color: #0F172A;
+  --tg-header-bg-color: rgba(20, 24, 40, 0.35);
+  --tg-section-bg-color: rgba(255, 255, 255, 0.14);
+  --tg-subtle-color: #E5E7EB;
+  --tg-link-color: #E0E7FF;
 
-  /* ── Brand Purple ───────────────────────────────────────── */
-  --primary: #4F46E5;
-  --primary-hover: #4338CA;
-  --primary-light: #EEF2FF;
-  --primary-glow: 0 8px 24px rgba(79, 70, 229, 0.28);
-  --primary-soft: rgba(79, 70, 229, 0.08);
-  --primary-border: rgba(79, 70, 229, 0.25);
+  /* ── Brand gradient ─────────────────────────────────────── */
+  --primary: #5B5FEF;
+  --primary-alt: #7A6CFF;
+  --primary-hover: #665CFF;
+  --primary-light: rgba(255, 255, 255, 0.16);
+  --primary-soft: rgba(123, 97, 255, 0.18);
+  --primary-border: rgba(225, 232, 255, 0.45);
+  --primary-gradient: linear-gradient(135deg, #5B5FEF, #7A6CFF);
 
-  /* ── Background gradient (like screenshot) ──────────────── */
-  --bg-gradient: linear-gradient(160deg, #EDE9FE 0%, #F5F3FF 45%, #FDE8F8 100%);
+  /* ── Background gradient (full-screen) ──────────────────── */
+  --bg-gradient: linear-gradient(180deg, #6C63FF 0%, #8E7CFF 40%, #C3B6FF 100%);
 
-  /* ── Surface ────────────────────────────────────────────── */
-  --card-bg: #FFFFFF;
-  --card-shadow: 0 4px 24px rgba(99, 68, 229, 0.10);
-  --card-shadow-hover: 0 8px 32px rgba(99, 68, 229, 0.16);
-  --border-subtle: rgba(99, 68, 229, 0.08);
+  /* ── Surfaces: glassy cards ─────────────────────────────── */
+  --card-bg: rgba(255, 255, 255, 0.16);
+  --card-bg-strong: rgba(255, 255, 255, 0.22);
+  --card-border: rgba(255, 255, 255, 0.28);
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  --card-shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.30);
 
   /* ── Layout ─────────────────────────────────────────────── */
-  --border-radius: 20px;
-  --radius-sm: 12px;
-  --radius-pill: 100px;
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.09);
+  --border-radius: 22px;
+  --radius-sm: 16px;
+  --radius-pill: 999px;
 
   /* ── Status colors ──────────────────────────────────────── */
-  --success: #10B981;
-  --warning: #F59E0B;
-  --danger: #EF4444;
+  --success: #4ADE80;
+  --warning: #FBBF24;
+  --danger: #F97373;
 
-  /* ── Icon tint backgrounds (quick action cards) ─────────── */
-  --tint-purple: rgba(79, 70, 229, 0.10);
-  --tint-pink: rgba(236, 72, 153, 0.10);
-  --tint-green: rgba(16, 185, 129, 0.10);
-  --tint-orange: rgba(245, 158, 11, 0.10);
+  /* ── Icon tint backgrounds (quick action pills) ─────────── */
+  --tint-purple: rgba(111, 118, 255, 0.18);
+  --tint-pink: rgba(244, 114, 182, 0.20);
+  --tint-green: rgba(45, 212, 191, 0.20);
+  --tint-orange: rgba(251, 191, 36, 0.22);
 
   /* ── App aliases ────────────────────────────────────────── */
-  --app-bg: var(--tg-bg-color);
+  --app-bg: var(--bg-gradient);
   --app-text: var(--tg-text-color);
-  --app-text-muted: var(--tg-subtle-color);
+  --app-text-muted: rgba(241, 245, 249, 0.88);
   --app-surface: var(--card-bg);
   --app-link: var(--tg-link-color);
 }
@@ -68,13 +68,13 @@
 html {
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
-  background: var(--tg-bg-color);
+  background: var(--bg-gradient);
 }
 
 body {
   background: var(--bg-gradient);
   min-height: 100vh;
-  color: var(--tg-text-color);
+  color: var(--app-text-muted);
   font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'SF Pro Display',
     'Segoe UI', sans-serif;
   line-height: 1.6;
