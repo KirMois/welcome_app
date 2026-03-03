@@ -1,41 +1,42 @@
 .service-card {
-  background: rgba(255, 255, 255, 0.16);
+  background: var(--card-bg);
   border-radius: var(--border-radius);
   padding: 20px;
   margin-bottom: 10px;
   box-shadow: var(--card-shadow);
   cursor: pointer;
-  transition: box-shadow 0.25s ease, transform 0.2s ease;
+  transition: box-shadow 0.25s ease, transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
   max-width: 440px;
   margin-left: auto;
   margin-right: auto;
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
   border: 1px solid var(--card-border);
 }
 
 .service-card:hover {
   box-shadow: var(--card-shadow-hover);
   transform: translateY(-2px);
+  background: var(--card-bg-hover);
+  border-color: var(--card-border-hover);
 }
 
 .service-card:active { transform: scale(0.99); }
 
 .service-card__body {
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .service-card__title {
   font-size: 1rem;
   font-weight: 700;
   color: var(--tg-text-color);
-  margin-bottom: 5px;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
 }
 
 .service-card__desc {
   font-size: 0.875rem;
   color: var(--tg-subtle-color);
-  line-height: 1.5;
+  line-height: 1.55;
   margin: 0;
 }
 
@@ -49,13 +50,13 @@
 .service-card__price-wrap {
   display: flex;
   align-items: center;
-  gap: 4px;
-  color: var(--primary);
+  gap: 5px;
 }
 
 .service-card__price-icon {
   width: 16px;
   height: 16px;
+  color: var(--primary);
   flex-shrink: 0;
 }
 
@@ -63,30 +64,34 @@
   font-size: 1.0625rem;
   font-weight: 700;
   color: var(--primary);
+  letter-spacing: -0.01em;
 }
 
 .service-card__btn {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  height: 38px;
-  padding: 0 16px;
-  font-size: 0.875rem;
+  gap: 5px;
+  height: 36px;
+  padding: 0 14px;
+  font-size: 0.8125rem;
   font-weight: 600;
   color: var(--primary);
-  background: var(--primary-light);
-  border: none;
+  background: var(--green-soft);
+  border: 1px solid var(--green-border);
   border-radius: var(--radius-pill);
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease;
   white-space: nowrap;
+  min-height: 36px;
 }
 
 .service-card__btn:hover {
-  background: rgba(79, 70, 229, 0.15);
+  background: rgba(34, 197, 94, 0.2);
+  border-color: rgba(34, 197, 94, 0.4);
+  transform: translateY(-1px);
 }
 
 .service-card__btn-icon {
-  width: 14px;
-  height: 14px;
+  width: 13px;
+  height: 13px;
 }

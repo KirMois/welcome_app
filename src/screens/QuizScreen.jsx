@@ -1,10 +1,11 @@
-import { useState, useRef } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { APP_DATA, serviceOptions } from '../data/appData';
 import { useTelegram } from '../hooks/useTelegram';
 import { QuizStep } from '../components/ui/QuizStep';
 import { FormField } from '../components/ui/FormField';
 import { PrimaryButton } from '../components/ui/PrimaryButton';
+import { toBackendUsername, validateContactFields } from '../utils/leadValidation';
 import './QuizScreen.css';
 
 const QUIZ = APP_DATA.solutionPicker;
@@ -15,6 +16,12 @@ export function QuizScreen() {
   const { username, sendLead } = useTelegram();
   const [step, setStep] = useState(1);
   const formRef = useRef(null);
+  const [errors, setErrors] = useState({});
+
+  const contactHint = useMemo(
+    () => 'Укажите email или Telegram username — достаточно одного контакта.',
+    []
+  );
 
   const handleNext = () => {
     if (step < TOTAL_STEPS) setStep(step + 1);
@@ -30,11 +37,24 @@ export function QuizScreen() {
     const stageEl = formRef.current.querySelector('input[name="quiz_2"]:checked');
     const budgetEl = formRef.current.querySelector('input[name="quiz_3"]:checked');
 
+    const email = (fd.get('email') || '').toString();
+    const telegram = (fd.get('telegram') || '').toString();
+
+    const nextErrors = validateContactFields({ email, telegram });
+    setErrors(nextErrors);
+    if (Object.keys(nextErrors).length) {
+      const first = Object.keys(nextErrors)[0];
+      const el = formRef.current.querySelector(`[name="${first === 'telegram' ? 'telegram' : 'email'}"]`);
+      if (el && typeof el.focus === 'function') el.focus();
+      return;
+    }
+
     // Payload format matching backend spec
     const payload = {
       source: 'quiz',
       name: fd.get('name') || '',
-      username: (fd.get('username') || '').replace(/^@/, ''),
+      username: toBackendUsername(telegram),
+      email: email.trim(),
       services: needArr.length ? needArr : (fd.get('service') ? [fd.get('service')] : []),
       budget: budgetEl ? budgetEl.value : (stageEl ? stageEl.value : ''),
       description: fd.get('task') || '',
@@ -98,12 +118,20 @@ export function QuizScreen() {
               required
             />
             <FormField
+              label={s4.emailLabel}
+              name="email"
+              type="email"
+              placeholder={s4.emailPlaceholder}
+              error={errors.email}
+            />
+            <FormField
               label={s4.usernameLabel}
-              name="username"
+              name="telegram"
               placeholder={s4.usernamePlaceholder}
               defaultValue={username}
-              required
+              error={errors.telegram}
             />
+            <p className="quiz-screen__hint" aria-live="polite">{contactHint}</p>
             <FormField
               type="textarea"
               label={s4.taskLabel}

@@ -9,8 +9,6 @@
   flex: 1;
   overflow-y: auto;
   padding: 0 16px 1.5rem;
-  padding-top: 72px;    /* fixed top nav height */
-  padding-bottom: 80px; /* fixed bottom nav height */
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  padding-top: 68px;    /* fixed top nav height */
+  padding-bottom: 84px; /* fixed bottom nav height */
 }

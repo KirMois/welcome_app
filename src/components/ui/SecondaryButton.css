@@ -2,21 +2,27 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   width: 100%;
-  min-height: 52px;
+  min-height: 54px;
   padding: 0 28px;
   font-size: 1rem;
   font-weight: 600;
   color: var(--primary);
-  background: var(--primary-light);
-  border: none;
+  background: var(--green-soft);
+  border: 1px solid var(--green-border);
   border-radius: var(--radius-pill);
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease;
   text-decoration: none;
   letter-spacing: 0.01em;
 }
 
-.btn--secondary:hover { background: rgba(79, 70, 229, 0.14); }
+.btn--secondary:hover {
+  background: rgba(34, 197, 94, 0.18);
+  border-color: rgba(34, 197, 94, 0.4);
+  transform: translateY(-1px);
+}
+
 .btn--secondary:active { transform: scale(0.98); }
 a.btn--secondary { text-decoration: none; }

@@ -11,3 +11,10 @@
 .lead-form-screen__back {
   margin-top: 12px;
 }
+
+.lead-form-screen__hint {
+  margin: 6px 2px 14px;
+  font-size: 0.875rem;
+  color: rgba(229, 231, 235, 0.92);
+  line-height: 1.45;
+}

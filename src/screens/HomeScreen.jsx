@@ -10,7 +10,6 @@ import {
   GlobeAltIcon,
 } from '@heroicons/react/24/outline';
 import { APP_DATA } from '../data/appData';
-import { Logo } from '../components/ui/Logo';
 import './HomeScreen.css';
 
 const QUICK_ACTIONS = [
@@ -59,9 +58,6 @@ export function HomeScreen() {
 
       {/* ── Hero card ──────────────────────────────────────── */}
       <div className="hero-card">
-        <div className="hero-card__logo">
-          <Logo height={40} />
-        </div>
         <h1 className="hero-card__headline">{h.headline}</h1>
         <p className="hero-card__sub">{h.subheadline}</p>
 

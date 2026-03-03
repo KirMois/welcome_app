@@ -28,3 +28,10 @@
 .quiz-screen__form .btn--primary {
   margin-top: 0.5rem;
 }
+
+.quiz-screen__hint {
+  margin: 6px 2px 14px;
+  font-size: 0.875rem;
+  color: rgba(229, 231, 235, 0.92);
+  line-height: 1.45;
+}

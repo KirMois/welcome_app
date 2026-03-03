@@ -1,10 +1,11 @@
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useRef } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { APP_DATA, serviceOptions } from '../data/appData';
 import { useTelegram } from '../hooks/useTelegram';
 import { FormField } from '../components/ui/FormField';
 import { PrimaryButton } from '../components/ui/PrimaryButton';
 import { SecondaryButton } from '../components/ui/SecondaryButton';
+import { toBackendUsername, validateContactFields } from '../utils/leadValidation';
 import './LeadFormScreen.css';
 
 export function LeadFormScreen() {
@@ -12,9 +13,15 @@ export function LeadFormScreen() {
   const location = useLocation();
   const { username, sendLead } = useTelegram();
   const formRef = useRef(null);
+  const [errors, setErrors] = useState({});
 
   const preselectedService = location.state?.preselectedService || '';
   const L = APP_DATA.leadForm;
+
+  const contactHint = useMemo(
+    () => 'Укажите email или Telegram username — достаточно одного контакта.',
+    []
+  );
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,10 +33,23 @@ export function LeadFormScreen() {
     const serviceVal = fd.get('service') || '';
     const services = serviceVal ? [serviceVal] : [];
 
+    const email = (fd.get('email') || '').toString();
+    const telegram = (fd.get('telegram') || '').toString();
+
+    const nextErrors = validateContactFields({ email, telegram });
+    setErrors(nextErrors);
+    if (Object.keys(nextErrors).length) {
+      const first = Object.keys(nextErrors)[0];
+      const el = formRef.current.querySelector(`[name="${first === 'telegram' ? 'telegram' : 'email'}"]`);
+      if (el && typeof el.focus === 'function') el.focus();
+      return;
+    }
+
     const payload = {
       source: 'lead_form',
       name: fd.get('name') || '',
-      username: (fd.get('username') || '').replace(/^@/, ''),
+      username: toBackendUsername(telegram),
+      email: email.trim(),
       services,
       budget: fd.get('contactTime') || '',
       description: fd.get('task') || '',
@@ -52,12 +72,20 @@ export function LeadFormScreen() {
           required
         />
         <FormField
+          label={L.emailLabel}
+          name="email"
+          type="email"
+          placeholder={L.emailPlaceholder}
+          error={errors.email}
+        />
+        <FormField
           label={L.usernameLabel}
-          name="username"
+          name="telegram"
           placeholder={L.usernamePlaceholder}
           defaultValue={username}
-          required
+          error={errors.telegram}
         />
+        <p className="lead-form-screen__hint" aria-live="polite">{contactHint}</p>
         <FormField
           type="textarea"
           label={L.taskLabel}

@@ -18,7 +18,7 @@ export function Logo({ className = '', height = 36 }) {
 
   return (
     <img
-      src="/logo.png"
+      src="/novacode_light.svg"
       alt="Novacode VLC"
       className={`logo ${className}`}
       style={{ maxHeight: `${height}px`, width: 'auto' }}

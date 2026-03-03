@@ -1,59 +1,99 @@
 /**
- * Novacode VLC — Soft gradient fintech theme.
- * Reference: Prakthis-style wallet UI — layered lavender gradient, glass cards.
- * Telegram themeParams override via useTelegram hook.
+ * Novacode VLC — Knowlers-inspired dark green design system.
+ * Dark navy background · Vibrant green accent · Clean minimal cards.
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
 :root {
-  /* ── Telegram Theme (overridden by themeParams in JS) ─── */
-  --tg-bg-color: #4F46E5;
-  --tg-text-color: #0F172A;
-  --tg-header-bg-color: rgba(20, 24, 40, 0.35);
-  --tg-section-bg-color: rgba(255, 255, 255, 0.14);
-  --tg-subtle-color: #E5E7EB;
-  --tg-link-color: #E0E7FF;
+  /* ── Core Brand Colors ──────────────────────────────────── */
+  --green-500: #22C55E;
+  --green-400: #4ADE80;
+  --green-600: #16A34A;
+  --green-700: #15803D;
+  --green-900: #052e16;
+  --green-glow: rgba(34, 197, 94, 0.28);
+  --green-soft: rgba(34, 197, 94, 0.12);
+  --green-border: rgba(34, 197, 94, 0.25);
 
-  /* ── Brand gradient ─────────────────────────────────────── */
-  --primary: #5B5FEF;
-  --primary-alt: #7A6CFF;
-  --primary-hover: #665CFF;
-  --primary-light: rgba(255, 255, 255, 0.16);
-  --primary-soft: rgba(123, 97, 255, 0.18);
-  --primary-border: rgba(225, 232, 255, 0.45);
-  --primary-gradient: linear-gradient(135deg, #5B5FEF, #7A6CFF);
+  /* ── Primary alias ──────────────────────────────────────── */
+  --primary: var(--green-500);
+  --primary-hover: var(--green-400);
+  --primary-active: var(--green-600);
+  --primary-light: var(--green-soft);
+  --primary-border: var(--green-border);
+  --primary-gradient: linear-gradient(135deg, #22C55E 0%, #16A34A 100%);
+  --primary-glow: 0 0 24px rgba(34, 197, 94, 0.35), 0 8px 32px rgba(34, 197, 94, 0.2);
 
-  /* ── Background gradient (full-screen) ──────────────────── */
-  --bg-gradient: linear-gradient(180deg, #6C63FF 0%, #8E7CFF 40%, #C3B6FF 100%);
+  /* ── Background System ──────────────────────────────────── */
+  --bg-base: #0A1628;
+  --bg-deep: #060E1A;
+  --bg-surface: #0F1E30;
+  --bg-elevated: #132236;
+  --bg-gradient: linear-gradient(180deg, #0A1628 0%, #060E1A 100%);
 
-  /* ── Surfaces: glassy cards ─────────────────────────────── */
-  --card-bg: rgba(255, 255, 255, 0.16);
-  --card-bg-strong: rgba(255, 255, 255, 0.22);
-  --card-border: rgba(255, 255, 255, 0.28);
-  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
-  --card-shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.30);
+  /* ── Telegram Theme ─────────────────────────────────────── */
+  --tg-bg-color: #0A1628;
+  --tg-text-color: #F0F6FF;
+  --tg-header-bg-color: rgba(10, 22, 40, 0.95);
+  --tg-section-bg-color: rgba(15, 30, 48, 0.98);
+  --tg-subtle-color: #7A8FA6;
+  --tg-link-color: var(--green-500);
 
-  /* ── Layout ─────────────────────────────────────────────── */
-  --border-radius: 22px;
-  --radius-sm: 16px;
+  /* ── Card / Surface System ──────────────────────────────── */
+  --card-bg: rgba(15, 30, 48, 0.95);
+  --card-bg-hover: rgba(19, 34, 54, 0.98);
+  --card-border: rgba(255, 255, 255, 0.07);
+  --card-border-hover: rgba(34, 197, 94, 0.2);
+  --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  --card-shadow-soft: 0 8px 40px rgba(0, 0, 0, 0.45);
+  --card-shadow-hover: 0 12px 48px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(34, 197, 94, 0.15);
+
+  /* ── Border Radius ──────────────────────────────────────── */
+  --border-radius: 20px;
+  --radius-lg: 24px;
+  --radius-sm: 14px;
+  --radius-xs: 10px;
   --radius-pill: 999px;
 
-  /* ── Status colors ──────────────────────────────────────── */
-  --success: #4ADE80;
-  --warning: #FBBF24;
-  --danger: #F97373;
+  /* ── Spacing Scale ──────────────────────────────────────── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
 
-  /* ── Icon tint backgrounds (quick action pills) ─────────── */
-  --tint-purple: rgba(111, 118, 255, 0.18);
-  --tint-pink: rgba(244, 114, 182, 0.20);
-  --tint-green: rgba(45, 212, 191, 0.20);
-  --tint-orange: rgba(251, 191, 36, 0.22);
+  /* ── Status Colors ──────────────────────────────────────── */
+  --success: #22C55E;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+  --info: #3B82F6;
 
-  /* ── App aliases ────────────────────────────────────────── */
+  /* ── Icon Tints ─────────────────────────────────────────── */
+  --tint-green:  rgba(34, 197, 94, 0.14);
+  --tint-blue:   rgba(59, 130, 246, 0.14);
+  --tint-purple: rgba(139, 92, 246, 0.14);
+  --tint-orange: rgba(249, 115, 22, 0.14);
+  --tint-pink:   rgba(236, 72, 153, 0.14);
+  --tint-teal:   rgba(20, 184, 166, 0.14);
+
+  /* ── App Aliases ────────────────────────────────────────── */
   --app-bg: var(--bg-gradient);
   --app-text: var(--tg-text-color);
-  --app-text-muted: rgba(241, 245, 249, 0.88);
+  --app-text-muted: #A8BCCF;
   --app-surface: var(--card-bg);
-  --app-link: var(--tg-link-color);
+  --app-link: var(--primary);
+
+  /* ── Shadows ────────────────────────────────────────────── */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
+
+  /* ── Border subtle ──────────────────────────────────────── */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.12);
 }
 
 /* ── Reset ────────────────────────────────────────────────── */
@@ -68,14 +108,14 @@
 html {
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
-  background: var(--bg-gradient);
+  background: var(--bg-deep);
 }
 
 body {
   background: var(--bg-gradient);
   min-height: 100vh;
   color: var(--app-text-muted);
-  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'SF Pro Display',
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display',
     'Segoe UI', sans-serif;
   line-height: 1.6;
   overscroll-behavior: none;
@@ -90,17 +130,17 @@ body {
 }
 
 /* ── Typography ───────────────────────────────────────────── */
-h1, h2, h3 {
+h1, h2, h3, h4 {
   margin: 0 0 0.4rem;
   font-weight: 700;
   line-height: 1.2;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
   color: var(--tg-text-color);
 }
 
-h1 { font-size: clamp(1.5rem, 5vw, 1.875rem); }
-h2 { font-size: clamp(1.25rem, 4vw, 1.5rem); }
-h3 { font-size: 1.0625rem; }
+h1 { font-size: clamp(1.5rem, 5vw, 1.875rem); font-weight: 800; }
+h2 { font-size: clamp(1.25rem, 4vw, 1.5rem); font-weight: 700; }
+h3 { font-size: 1.0625rem; font-weight: 600; }
 
 p { margin: 0 0 0.5rem; }
 
@@ -114,21 +154,22 @@ p { margin: 0 0 0.5rem; }
 .screen-headline {
   font-size: clamp(1.25rem, 4vw, 1.5rem);
   font-weight: 800;
-  letter-spacing: -0.02em;
-  margin-bottom: 4px;
+  letter-spacing: -0.025em;
+  margin-bottom: 6px;
+  color: var(--tg-text-color);
 }
 
 .screen-subheadline {
-  color: var(--tg-subtle-color);
+  color: var(--app-text-muted);
   font-size: 0.9375rem;
-  margin-bottom: 1rem;
-  line-height: 1.55;
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
 }
 
 .screen-helper {
   color: var(--tg-subtle-color);
   font-size: 0.875rem;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 /* ── Section label ────────────────────────────────────────── */
@@ -140,20 +181,24 @@ p { margin: 0 0 0.5rem; }
 }
 
 .section-header__title {
-  font-size: 1.0625rem;
+  font-size: 0.8125rem;
   font-weight: 700;
-  color: var(--tg-text-color);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--tg-subtle-color);
 }
 
 .section-header__link {
   font-size: 0.8125rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--primary);
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 2px;
+  transition: opacity 0.2s;
 }
+.section-header__link:hover { opacity: 0.8; }
 
 /* ── Touch targets ────────────────────────────────────────── */
 button, a, [role="button"] {
@@ -168,3 +213,8 @@ select:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
 }
+
+/* ── Scrollbar ────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(34, 197, 94, 0.2); border-radius: 4px; }

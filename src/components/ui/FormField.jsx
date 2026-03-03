@@ -12,12 +12,16 @@ export function FormField({
   defaultValue,
   placeholder,
   required,
+  error,
   rows,
   options = [],
   className = '',
   ...props
 }) {
   const inputId = id || name;
+  const errorId = error ? `${inputId}-error` : undefined;
+  const describedBy = [props['aria-describedby'], errorId].filter(Boolean).join(' ') || undefined;
+  const ariaInvalid = error ? true : props['aria-invalid'];
 
   let input = null;
   if (type === 'textarea') {
@@ -31,6 +35,8 @@ export function FormField({
         required={required}
         rows={rows ?? 3}
         className="form-field__input form-field__textarea"
+        aria-invalid={ariaInvalid}
+        aria-describedby={describedBy}
         {...props}
       />
     );
@@ -42,6 +48,8 @@ export function FormField({
         value={value}
         defaultValue={defaultValue}
         className="form-field__input form-field__select"
+        aria-invalid={ariaInvalid}
+        aria-describedby={describedBy}
         {...props}
       >
         <option value="">{placeholder}</option>
@@ -63,6 +71,8 @@ export function FormField({
         placeholder={placeholder}
         required={required}
         className="form-field__input"
+        aria-invalid={ariaInvalid}
+        aria-describedby={describedBy}
         {...props}
       />
     );
@@ -75,6 +85,11 @@ export function FormField({
         {required && <span className="form-field__required" aria-hidden> *</span>}
       </label>
       {input}
+      {error && (
+        <div id={errorId} className="form-field__error" role="alert">
+          {error}
+        </div>
+      )}
     </div>
   );
 }

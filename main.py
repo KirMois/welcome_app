@@ -22,6 +22,7 @@ LEAD_CHAT_ID = 675015988  # @yatakoikirill
 def build_message(data: dict) -> str:
     name = data.get('name', 'N/A')
     username = data.get('username', 'N/A').lstrip('@')
+    email = (data.get('email') or '').strip()
     services_raw = data.get('services', [])
     services = ', '.join(services_raw) if isinstance(services_raw, list) else str(services_raw)
     budget = data.get('budget', 'N/A')
@@ -33,10 +34,13 @@ def build_message(data: dict) -> str:
     except Exception:
         ts_fmt = ts
 
+    email_line = f"📧 Email: {email}\n" if email else ""
+
     return (
         f"🆕 НОВАЯ ЗАЯВКА Novacode VLC\n\n"
         f"👤 Имя: {name}\n"
         f"🆔 Telegram: @{username}\n"
+        f"{email_line}"
         f"🎯 Услуги: {services}\n"
         f"💰 Бюджет: {budget}\n"
         f"📝 Задача: {description}\n\n"
